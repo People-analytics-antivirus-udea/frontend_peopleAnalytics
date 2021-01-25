@@ -38,8 +38,7 @@ const DownloadTwo = ({ className, prefi, ...rest }) => {
   const fetchData = async () => {
     await axios({
       method: 'post',
-      url:
-        'https://zey12u6qr8.execute-api.us-east-1.amazonaws.com/version-prueba',
+      url: process.env.REACT_APP_DOWNLOAD_API,
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       data: {
         nombre_ies: prefi

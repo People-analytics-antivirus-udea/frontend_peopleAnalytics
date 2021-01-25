@@ -52,7 +52,7 @@ const Upload = ({ className, prefi, userMetadata, ...rest }) => {
           values['archivo'][0].name.split('.')[0] + '-' + Date.now() + '.csv';
         await axios
           .post(
-            'https://unquseq0xf.execute-api.us-east-1.amazonaws.com/cargaDeArchivo',
+            process.env.REACT_APP_UPLOAD_API,
             formData,
             {
               headers: {

@@ -38,8 +38,7 @@ const DownloadFiles = ({ className, prefi, ...rest }) => {
   const fetchData = async () => {
     await axios({
       method: 'post',
-      url:
-        'https://x7t8iwhc2e.execute-api.us-east-1.amazonaws.com/getUrlsUploaded',
+      url: process.env.REACT_APP_UPLOADED_API,
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       data: {
         nombre_ies: prefi

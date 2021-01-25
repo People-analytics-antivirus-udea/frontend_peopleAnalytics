@@ -44,8 +44,7 @@ const ProfileDetails = ({ className, user1, metadata, ...rest }) => {
   const fetchEmails = async () => {
     await axios({
       method: 'get',
-      url:
-        'https://3lm0f6w2tk.execute-api.us-east-1.amazonaws.com/prod/mail/list/',
+      url: process.env.REACT_APP_FETCH_EMAILS,
       params: {
         prefix_uni: metadata.u_prefix
       }
@@ -71,7 +70,7 @@ const ProfileDetails = ({ className, user1, metadata, ...rest }) => {
     };
 
     fetch(
-      `https://3lm0f6w2tk.execute-api.us-east-1.amazonaws.com/prod/mail/delete/?id=${item.id}`,
+      `${process.env.REACT_APP_REMOVE_EMAILS}/?id=${item.id}`,
       requestOptions
     )
       .then(() => {
@@ -100,7 +99,7 @@ const ProfileDetails = ({ className, user1, metadata, ...rest }) => {
 
     axios
       .post(
-        'https://3lm0f6w2tk.execute-api.us-east-1.amazonaws.com/prod/mail',
+        process.env.REACT_APP_POST_EMAILS,
         {
           email: emailTemp,
           university: user1.name,
